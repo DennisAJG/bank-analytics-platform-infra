@@ -11,28 +11,28 @@ module "networking" {
 
 module "iam" {
   source      = "../../modules/iam"
-  environment = var.environment
-  name_prefix = local.name_prefix
+#  environment = var.environment
+#  name_prefix = local.name_prefix
 }
 
 module "ecr" {
   source      = "../../modules/ecr"
-  environment = var.environment
-  name_prefix = local.name_prefix
+#  environment = var.environment
+#  name_prefix = local.name_prefix
 }
 
 module "eks" {
   source       = "../../modules/eks"
-  environment  = var.environment
-  name_prefix  = local.name_prefix
-  cluster_name = var.cluster_name
+#  environment  = var.environment
+#  name_prefix  = local.name_prefix
+#  cluster_name = var.cluster_name
 
-  vpc_id             = module.networking.vpc_id
-  private_subnet_ids = module.networking.private_app_subnet_ids
-  public_subnet_ids  = module.networking.public_subnet_ids
+#  vpc_id             = module.networking.vpc_id
+#  private_subnet_ids = module.networking.private_app_subnet_ids
+#  public_subnet_ids  = module.networking.public_subnet_ids
 
   # prepara pro próximo passo
-  nodes_security_group_id = module.networking.eks_nodes_sg_id
+#  nodes_security_group_id = module.networking.eks_nodes_sg_id
 }
 
 
